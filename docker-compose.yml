@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+  go-echo-docker:
+    container_name: go-echo-docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "1323:1323"
+    tty: true
+    volumes:
+      - ./:/app
+    environment:
+      - port=1323
+      - ENVIRONMENT=DEVELOPMENT
